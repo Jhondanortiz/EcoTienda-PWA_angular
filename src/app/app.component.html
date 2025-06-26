@@ -1,0 +1,106 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" routerLink="/">🌱 EcoTienda</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/servicios" routerLinkActive="active">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/acerca-de" routerLinkActive="active">Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contacto" routerLinkActive="active">Contacto</a>
+        </li>
+      </ul>
+
+      <!-- Install Button -->
+      <button id="installBtn" class="btn btn-outline-light ms-2 d-none">
+        📱 Instalar App
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Home Sections -->
+<div *ngIf="isHomePage()">
+  <!-- Hero Section -->
+  <header class="hero-section bg-success text-white py-5 mt-5">
+    <div class="container text-center py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="display-4 fw-bold mb-4 fade-in">🌿 EcoTienda</h1>
+          <p class="lead mb-4 slide-up">Productos sostenibles para un futuro mejor</p>
+          <p class="mb-4 slide-up">Descubre nuestra selección de productos ecológicos que cuidan el planeta</p>
+          <a routerLink="/servicios" class="btn btn-light btn-lg px-4 py-2 slide-up">
+            Explorar Productos 🛍️
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 border-0 shadow-sm slide-left">
+            <div class="card-body p-4">
+              <div class="display-6 text-success mb-3">🌱</div>
+              <h3 class="h5 fw-bold">100% Ecológicos</h3>
+              <p class="text-muted">Todos nuestros productos son respetuosos con el medio ambiente</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 border-0 shadow-sm slide-up">
+            <div class="card-body p-4">
+              <div class="display-6 text-success mb-3">🚚</div>
+              <h3 class="h5 fw-bold">Envío Sostenible</h3>
+              <p class="text-muted">Packaging biodegradable y transporte neutro en carbono</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 border-0 shadow-sm slide-right">
+            <div class="card-body p-4">
+              <div class="display-6 text-success mb-3">💚</div>
+              <h3 class="h5 fw-bold">Compromiso Social</h3>
+              <p class="text-muted">Parte de nuestras ganancias se destinan a proyectos ambientales</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Router Content -->
+<main class="container py-5 mt-5" *ngIf="!isHomePage()">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4 mt-5">
+  <div class="container text-center">
+    <p class="mb-0">&copy; 2024 EcoTienda. Comprometidos con el planeta 🌍</p>
+    <div class="mt-2">
+      <small class="text-muted">
+        <span id="connectionStatus">En línea</span> | 
+        <span id="lastUpdate">Actualizado: <span id="updateTime"></span></span>
+      </small>
+    </div>
+  </div>
+</footer>

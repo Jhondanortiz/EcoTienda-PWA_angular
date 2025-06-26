@@ -1,6 +1,15 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { App } from './app/app';
+import { provideRouter } from '@angular/router';
+import { AppComponent } from './app/app.component';  // ← CAMBIO AQUÍ
+import { routes } from './app/app.routes';
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes)
+  ]
+}).catch((err: any) => console.error(err));
+
+// Inicialización adicional después de que Angular esté listo
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Aplicación PWA inicializada');
+});
